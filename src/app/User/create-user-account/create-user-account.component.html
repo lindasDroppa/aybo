@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Upload Picture</h3>
+      <hr>
+      <div class="form-group">
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          multiple
+          class="form-control-file"
+          (change)="onFileSelected($event)"
+        />
+        <small id="fileHelp" class="form-text text-muted">Please upload a picture of the product.</small>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Image</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let image of images">
+            <td>
+              <img
+                [src]="image.base64"
+                class="img-thumbnail"
+                style="max-width: 100px"
+              />
+            </td>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Product Details</h3>
+      <hr>
+
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input type="text" [(ngModel)]="name"  class="form-control" id="name" placeholder="Enter product name">
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">R</span>
+            </div>
+            <input type="text" [(ngModel)]="amount" class="form-control" id="price" placeholder="Enter price">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="type">Product Type</label>
+          <select [(ngModel)]="category" class="form-control" id="type">
+            <option value="">Select product type</option>
+            <option value="CLOTHING">CLOTHING</option>
+            <option value="ELECTRONIC">ELECTRONIC</option>
+          </select>
+        </div>
+        <div >
+          <label for="quantity">Quantity</label>
+          <input type="number" id = "quantity" class="form-control" placeholder="Enter amount of product you are selling" min="1" max="5000" [(ngModel)]="quantity">
+        </div>
+      <div >
+        <label for="desc">Description</label>
+        <input type="text" id = "desc" class="form-control" placeholder="Enter amount of product you are selling" [minLength]="5"  [(ngModel)]="description">
+      </div>
+        <button type="submit" (click)="submitProduct()" class="btn btn-primary">Submit</button>
+
+    </div>
+  </div>
+</div>
