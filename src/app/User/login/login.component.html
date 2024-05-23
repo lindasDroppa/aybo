@@ -1,0 +1,26 @@
+<div class="container-fluid h-100">
+  <div class="row">
+    <div class="col-md-6 d-none d-md-block bg-image" >
+    <img ngSrc="assets/3d-render-secure-login-password-illustration.jpg" height="700" width="800">
+    </div>
+    <div class="col-md-6 bg-light">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+          <h1 class="text indigo-300" >Welcome back!</h1>
+          <p class="text opacity-50">Please login below</p>
+
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" [(ngModel)]="username"  class="form-control" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" [(ngModel)]="password"  class="form-control" id="password" placeholder="Enter password">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" (click)="loginUser()">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
